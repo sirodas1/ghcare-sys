@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEMSTable extends Migration
+class CreateEmergencyUnitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEMSTable extends Migration
      */
     public function up()
     {
-        Schema::create('e_m_s', function (Blueprint $table) {
+        Schema::create('emergency_units', function (Blueprint $table) {
             $table->id();
             $table->string('affiliate_institution');
             $table->string('pharmacist_card_number')->unique();
@@ -43,6 +43,6 @@ class CreateEMSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('e_m_s');
+        Schema::dropIfExists('emergency_units');
     }
 }
