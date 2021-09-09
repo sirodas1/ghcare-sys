@@ -59,12 +59,9 @@
 
         <div class="form-group mb-0">
             <div class="col-md-8 offset-md-2">
-                {{-- <button type="submit" class="btn btn-danger w-100" style="border-radius: 25px;">
+                <button type="submit" class="btn btn-danger w-100" style="border-radius: 25px;">
                     {{ __('Login') }}
-                </button> --}}
-                <a href="{{route('home')}}" class="btn btn-danger w-100" style="border-radius: 25px;">
-                    {{ __('Login') }}
-                </a>
+                </button>
             </div>
         </div>
     </form>

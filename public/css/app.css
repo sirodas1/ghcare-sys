@@ -16234,3 +16234,40 @@ body {
     font-size: 18px;
   }
 }
+#topbar .dropdown-toggle::after {
+  display: none;
+}
+
+.dashboard-options {
+  background-color: white;
+  height: 120px;
+  border: 0.1px solid #96d6a5;
+  border-radius: 18px;
+}
+.dashboard-options .icon {
+  background-color: #008A20;
+  color: whitesmoke;
+  height: 50px;
+  width: 50px;
+  border-radius: 15px;
+  align-items: center;
+  font-size: 20px;
+}
+.dashboard-options .option-text {
+  color: #939694;
+}
+
+.dashboard-options:hover {
+  background-color: #008A20;
+}
+.dashboard-options:hover .icon {
+  background-color: whitesmoke;
+  color: #008A20;
+}
+.dashboard-options:hover .option-text {
+  color: whitesmoke;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

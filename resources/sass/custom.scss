@@ -66,8 +66,49 @@ body{
 }
   
   
-  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
-  } 
+} 
+
+#topbar .dropdown-toggle::after {
+    display: none;
+}
+
+.dashboard-options{
+    background-color: white;
+    height: 120px;
+    border: 0.1px solid #96d6a5;
+    border-radius: 18px;
+    
+    .icon{
+        background-color: #008A20;
+        color: whitesmoke;
+        height: 50px;
+        width: 50px;
+        border-radius: 15px;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    .option-text{
+        color: #939694;
+    }
+}
+.dashboard-options:hover{
+    background-color: #008A20;
+
+    .icon{
+        background-color: whitesmoke;
+        color: #008A20;
+    }
+
+    .option-text{
+        color: whitesmoke;
+    }
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

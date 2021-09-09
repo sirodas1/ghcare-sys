@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GH Care | Dashboard</title>
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
-    <script src="{{asset('/js/app.css')}}"></script>
+    <script src="{{asset('/js/app.js')}}"></script>
+
+    <style>
+        
+    </style>
 </head>
 <body>
     @include('includes.sidebar')
