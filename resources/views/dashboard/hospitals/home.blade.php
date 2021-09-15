@@ -5,19 +5,28 @@
 @section('back-check', true)
 
 @section('content')
-    <div class="row justify-content-between mt-5">
-        <div class="col-md-7">
-            <form action="{{route('hospitals.home')}}" method="GET">
-                <div class="form-row">
-                    <input type="text" name="searchKey" id="searchKey" value="{{old('searchKey') ?? $searchKey}}" class="form-control w-75" placeholder="Search for Hospital by Name, Type or Administrator;">
-                    <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-                </div>
-            </form>
+    @if (isset($hospitals) && $hospitals->isNotEmpty())
+        <div class="row justify-content-between mt-5">
+            <div class="col-md-7">
+                <form action="{{route('hospitals.home')}}" method="GET">
+                    <div class="form-row">
+                        <input type="text" name="searchKey" id="searchKey" value="{{old('searchKey') ?? $searchKey}}" class="form-control w-75" placeholder="Search for Hospital by Name, Email, Type or Administrator;">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <a href="{{route('hospitals.register.hospital')}}" class="btn btn-success"><i class="fa fa-plus"></i>&emsp;Add Hospital</a>
+            </div>
         </div>
-        <div class="col-md-3">
-            <a href="{{route('hospitals.register.hospital')}}" class="btn btn-success"><i class="fa fa-plus"></i>&emsp;Add Hospital</a>
+    @else
+        <div class="row justify-content-end mt-5">
+            <div class="col-md-3">
+                <a href="{{route('hospitals.register.hospital')}}" class="btn btn-success"><i class="fa fa-plus"></i>&emsp;Add Hospital</a>
+            </div>
         </div>
-    </div>
+    @endif
+    
     @if (session()->has('search_message'))
     <br>
         <div class="row justify-content-center">

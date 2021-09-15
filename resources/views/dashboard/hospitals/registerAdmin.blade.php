@@ -27,7 +27,7 @@
                                         <div id="uploadImageBlock" class="border border-success w-100 p-5 d-flex align-center rounded-circle" onclick="document.getElementById('profile_pic').click()">
                                             <span class="text-success"><i class="fa fa-camera fa-2x"></i></span>
                                         </div>
-                                        <img id="imagePreview" src="#" class="img img-fluid rounded-circle" hidden>
+                                        <img id="imagePreview" src="#" class="img img-fluid rounded-circle" onclick="document.getElementById('profile_pic').click()" hidden>
                                     </div>
                                     <input type="file" name="profile_pic" id="profile_pic" onchange="loadImagePreview('imagePreview', this);" hidden>
                                 </div>
