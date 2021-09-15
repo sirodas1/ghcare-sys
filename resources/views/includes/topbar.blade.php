@@ -1,7 +1,13 @@
+@php
+    $back_check = View::hasSection('back-check');
+@endphp
 <nav id="topbar" class="my-4">
     <div class="row justify-content-between px-2">
-        <div class="col-2 px-0">
-            <span class="h4 text-dark"><strong>Dashboard</strong></span>
+        <div class="px-0">
+            @if ($back_check)
+                <a href="@yield('page-back')"><span class="h5 text-success"><i class="fa fa-chevron-left"></i></span></a>&emsp;
+            @endif
+            <span class="h4 text-dark"><strong>@yield('title')</strong></span>
         </div>
         <div class="col-md-5">
             <div class="row justify-content-end">

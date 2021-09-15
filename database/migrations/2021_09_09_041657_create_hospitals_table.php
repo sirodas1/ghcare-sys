@@ -16,13 +16,14 @@ class CreateHospitalsTable extends Migration
         Schema::create('hospitals', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('alias')->unique();
+            $table->string('alias')->unique()->nullable();
             $table->string('email')->unique();
+            $table->string('logo')->nullable();
             $table->string('phone_number');
             $table->string('region');
             $table->string('district');
             $table->string('town');
-            $table->string('building_address');
+            $table->string('ghana_post_gps');
             $table->string('institution_id');
             $table->enum('type_of_institution',['Hospital', 'Clinic', 'Heath Center']);
             $table->timestamps();

@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Dashboard')
+
 @section('content')
     <div class="row">
         <span class="text-success h5"><strong>Welcome to GhCare</strong></span>
@@ -9,7 +11,7 @@
     </div>
     <div class="row justify-content-around my-5">
         <div class="col-md-4">
-            <div class="dashboard-options cursor-pointer w-full py-4 px-4">
+            <div onclick="window.location.href = '{{route('hospitals.home')}}'" class="dashboard-options cursor-pointer w-full py-4 px-4">
                 <div class="row justify-content-between mx-1">
                     <div class="icon d-flex justify-content-center">
                         <i class="fa fa-clinic-medical"></i>
