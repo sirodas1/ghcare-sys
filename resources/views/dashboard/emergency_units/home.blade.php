@@ -70,7 +70,7 @@
     @else
         <br><br><br>
         <div class="row justify-content-center h4 text-secondary mt-5">
-            There Are no Emergency Unit Personnel Registered into the system.
+            There are no Emergency Unit Personnel Registered into the system.
         </div>
     @endif
 @endsection

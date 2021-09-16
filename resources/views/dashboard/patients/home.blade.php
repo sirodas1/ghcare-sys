@@ -1,14 +1,14 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Hospitals')
+@section('title', 'Patients')
 @section('page-back', route('home'))
 @section('back-check', true)
 
 @section('content')
-    @if (isset($hospitals) && $hospitals->isNotEmpty())
+    @if (isset($patients) && $patients->isNotEmpty())
         <div class="row justify-content-between mt-5">
             <div class="col-md-7">
-                <form action="{{route('hospitals.home')}}" method="GET">
+                <form action="{{route('patients.home')}}" method="GET">
                     <div class="form-row">
                         <input type="text" name="searchKey" id="searchKey" value="{{old('searchKey') ?? $searchKey}}" class="form-control w-75" placeholder="Search for Hospital by Name, Email, Type or Administrator;">
                         <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
@@ -16,13 +16,7 @@
                 </form>
             </div>
             <div class="col-md-3">
-                <a href="{{route('hospitals.register.hospital')}}" class="btn btn-success"><i class="fa fa-plus"></i>&emsp;Add Hospital</a>
-            </div>
-        </div>
-    @else
-        <div class="row justify-content-end mt-5">
-            <div class="col-md-3">
-                <a href="{{route('hospitals.register.hospital')}}" class="btn btn-success"><i class="fa fa-plus"></i>&emsp;Add Hospital</a>
+                
             </div>
         </div>
     @endif
@@ -43,27 +37,27 @@
             </div>
         </div><br><br>
     @endif
-    @if (isset($hospitals) && $hospitals->isNotEmpty())
+    @if (isset($patients) && $patients->isNotEmpty())
         <div class="row p-2 my-3">
             <table class="table table-hover table-responsive">
                 <thead class="bg-success text-light">
-                    <th>Hospital Name</th>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
-                    <th>Type</th>
-                    <th>Administrator</th>
-                    <th>Administrator Email</th>
+                    <th>National ID</th>
+                    <th>Region</th>
+                    <th>District</th>
                     <th></th>
                 </thead>
                 <tbody class="my-2">
-                    @foreach ($hospitals as $hospital)
-                        <tr class="cursor-pointer table-success my-1" onclick="window.location.href= '{{route('hospitals.show', ['id' => $hospital->id])}}'";>
-                            <td>{{$hospital->name}}</td>
-                            <td>{{$hospital->email}}</td>
-                            <td>{{$hospital->phone_number}}</td>
-                            <td>{{$hospital->type_of_institution}}</td>
-                            <td>{{$hospital->root_user->fullname}}</td>
-                            <td>{{$hospital->root_user->email}}</td>
+                    @foreach ($patients as $patient)
+                        <tr class="cursor-pointer table-success my-1" onclick="window.location.href= '{{route('patients.show', ['id' => $patient->id])}}'";>
+                            <td>{{$patient->lastname . ' ' . $patient->firstname . ' ' . ($patient->othernames ?? '')}}</td>
+                            <td>{{$patient->email}}</td>
+                            <td>{{$patient->phone_number}}</td>
+                            <td>{{$patient->national_card_id}}</td>
+                            <td>{{$patient->region}}</td>
+                            <td>{{$patient->district}}</td>
                             <td><a href="#"><i class="fa fa-edit"></i></a></td>
                         </tr>
                     @endforeach
@@ -73,7 +67,7 @@
     @else
         <br><br><br>
         <div class="row justify-content-center h4 text-secondary mt-5">
-            There are no Hospitals Registered into the system.
+            There are no Patients in the system.
         </div>
     @endif
 @endsection

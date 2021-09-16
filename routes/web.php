@@ -57,5 +57,10 @@ Route::group(['middleware' => 'auth'], function () {
             Route::put('{id}', [EmergencyUnitsController::class, 'updateUnit'])->name('update');
         });
     });
+
+    Route::group(['prefix' => 'patients', 'as' => 'patients.'],function () {
+        Route::get('', [PatientsController::class, 'index'])->name('home');
+        Route::get('{id}', [PatientsController::class, 'show'])->name('show');
+    });
 });
 
