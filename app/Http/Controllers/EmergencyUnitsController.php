@@ -74,7 +74,7 @@ class EmergencyUnitsController extends Controller
             'password' => 'required|string',
             'confirm_password' => 'required|same:password',
             'affiliate_institution' => 'required|string',
-            'pharmacist_card_number' => 'required|string',
+            'ems_card_number' => 'required|string',
             'gender' => 'required|string',
             'age' => 'required|numeric',
             'region' => 'required|string',
