@@ -100,7 +100,7 @@
                                 <label for="othernames" class="col col-form-label">{{ __('Othernames :') }}</label>
 
                                 <div class="col">
-                                    <input id="othernames" type="text" class="form-control @error('othernames') is-invalid @enderror" name="othernames" value="{{ old('othernames') }}" required autocomplete="othernames" autofocus>
+                                    <input id="othernames" type="text" class="form-control @error('othernames') is-invalid @enderror" name="othernames" value="{{ old('othernames') }}" autocomplete="othernames" autofocus>
 
                                     @error('othernames')
                                         <span class="invalid-feedback" role="alert">
