@@ -28,7 +28,7 @@ class Hospital extends Model
 
     public function root_user()
     {
-        return $this->hasOne(User::class, 'hospital_id');
+        return $this->hasOne(HospitalRootUser::class, 'hospital_id');
     }
 
     public function doctors()
