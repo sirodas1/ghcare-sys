@@ -14,8 +14,11 @@ class AlterMedicationsTable extends Migration
     public function up()
     {
         Schema::table('medications', function (Blueprint $table) {
+            $table->unsignedBigInteger('hospital_id')->after('id')->nullable();
             $table->datetime('end_date')->nullable()->change();
             $table->integer('quantity')->default(1);
+
+            $table->foreign('hospital_id')->references('id')->on('hospitals');
         });
     }
 
@@ -28,6 +31,7 @@ class AlterMedicationsTable extends Migration
     {
         Schema::table('medications', function (Blueprint $table) {
             $table->dropColumn('quantity');
+            $table->dropForeign(['hospital_id']);
         });
     }
 }
