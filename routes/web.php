@@ -62,5 +62,18 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('', [PatientsController::class, 'index'])->name('home');
         Route::get('{id}', [PatientsController::class, 'show'])->name('show');
     });
+
+    Route::group(['prefix' => 'doctors', 'as' => 'doctors.'],function () {
+        Route::get('', [HospitalsController::class, 'getDoctors'])->name('home');
+    });
+
+    Route::group(['prefix' => 'nurses', 'as' => 'nurses.'],function () {
+        Route::get('', [HospitalsController::class, 'getNurses'])->name('home');
+    });
+
+    Route::group(['prefix' => 'pharmacists', 'as' => 'pharmacists.'],function () {
+        Route::get('', [HospitalsController::class, 'getPharmacists'])->name('home');
+    });
+    
 });
 

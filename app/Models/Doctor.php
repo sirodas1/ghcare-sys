@@ -35,4 +35,9 @@ class Doctor extends Model
     {
         return $this->belongsTo(Hospital::class, 'hospital_id');
     }
+
+    public function assignedFiles()
+    {
+        return $this->hasMany(File::class, 'doctore_id');
+    }
 }

@@ -13,24 +13,19 @@
     </div>
     <div class="mt-3 row justify-content-start">
         <div class="col-10">
-            <a href="#" class="mt-3 w-100">
+            <a href="{{route('hospitals.home')}}" class="mt-3 w-100">
                 <span class="text-success"><i class="fa fa-clinic-medical"></i></span>&emsp; 
                 Hospitals 
                 <span class="float-right"><i class="fa fa-chevron-right"></i></span>
             </a>
-            <a href="#" class="mt-2">
+            <a href="{{route('emergency.home')}}" class="mt-2">
+                <span class="text-success"><i class="fa fa-ambulance"></i></span>&emsp; 
+                EMS 
+                <span class="float-right"><i class="fa fa-chevron-right"></i></span>
+            </a>
+            <a href="{{route('patients.home')}}" class="mt-2">
                 <span class="text-success"><i class="fa fa-user-injured"></i></span>&emsp; 
                 Patients 
-                <span class="float-right"><i class="fa fa-chevron-right"></i></span>
-            </a>
-            <a href="#" class="mt-2">
-                <span class="text-success"><i class="fa fa-chart-line"></i></span>&emsp; 
-                Statistics 
-                <span class="float-right"><i class="fa fa-chevron-right"></i></span>
-            </a>
-            <a href="#" class="mt-2">
-                <span class="text-success"><i class="fa fa-sliders-h"></i></span>&emsp; 
-                Settings 
                 <span class="float-right"><i class="fa fa-chevron-right"></i></span>
             </a>
         </div>

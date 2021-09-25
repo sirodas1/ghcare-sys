@@ -49,7 +49,7 @@
     </div>
     <div class="row justify-content-around">
         <div class="col-md-4">
-            <div class="dashboard-options cursor-pointer w-full py-4 px-4">
+            <div onclick="window.location.href = '{{route('doctors.home')}}'" class="dashboard-options cursor-pointer w-full py-4 px-4">
                 <div class="row justify-content-between mx-1">
                     <div class="icon d-flex justify-content-center">
                         <i class="fa fa-user-md"></i>
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="dashboard-options cursor-pointer w-full py-4 px-4">
+            <div onclick="window.location.href = '{{route('pharmacists.home')}}'" class="dashboard-options cursor-pointer w-full py-4 px-4">
                 <div class="row justify-content-between mx-1">
                     <div class="icon d-flex justify-content-center">
                         <i class="fa fa-tablets"></i>
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="dashboard-options cursor-pointer w-full py-4 px-4">
+            <div onclick="window.location.href = '{{route('nurses.home')}}'" class="dashboard-options cursor-pointer w-full py-4 px-4">
                 <div class="row justify-content-between mx-1">
                     <div class="icon d-flex justify-content-center">
                         <i class="fa fa-user-nurse"></i>

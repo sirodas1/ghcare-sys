@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Hospital;
+use App\Models\Doctor;
+use App\Models\Nurse;
+use App\Models\Pharmacist;
 
 class HospitalsController extends Controller
 {
@@ -250,5 +253,113 @@ class HospitalsController extends Controller
         session()->flash('success_message', 'Administrator Information Was Successfully Uppdated');
 
         return redirect()->back();
+    }
+
+    public function getDoctors()
+    {
+        $doctors = Doctor::all();
+
+        $searchKey = null;
+        
+        if (request()->searchKey && request()->searchKey !== '') {
+            $doctors_filter = $doctors->filter(function ($value) {
+                return stripos($value->firstname, request()->searchKey) !== false ||
+                    stripos($value->lastname, request()->searchKey) !== false ||
+                    stripos($value->othernames, request()->searchKey) !== false ||
+                    stripos($value->email, request()->searchKey) !== false ||
+                    $value->doctor_card_number == request()->searchKey;
+            });
+            if (count($doctors_filter) <= 0) {
+                session()->flash(
+                    'search_message',
+                    'No result found for search key: ' . request()->searchKey
+                );
+            }
+            $doctors =
+                count($doctors_filter) > 0
+                    ? $doctors_filter
+                    : $doctors;
+            
+            $searchKey = request()->searchKey;
+        }
+
+        $data = [
+            'doctors' => $doctors,
+            'searchKey' => $searchKey,
+        ];
+
+        return view('dashboard.doctors.home', $data);
+    }
+
+    public function getNurses()
+    {
+        $nurses = Nurse::all();
+
+        $searchKey = null;
+        
+        if (request()->searchKey && request()->searchKey !== '') {
+            $nurses_filter = $nurses->filter(function ($value) {
+                return stripos($value->firstname, request()->searchKey) !== false ||
+                    stripos($value->lastname, request()->searchKey) !== false ||
+                    stripos($value->othernames, request()->searchKey) !== false ||
+                    stripos($value->email, request()->searchKey) !== false ||
+                    $value->nursing_card_number == request()->searchKey;
+            });
+            if (count($dnurses_filter) <= 0) {
+                session()->flash(
+                    'search_message',
+                    'No result found for search key: ' . request()->searchKey
+                );
+            }
+            $nurses =
+                count($nurses_filter) > 0
+                    ? $nurses_filter
+                    : $nurses;
+            
+            $searchKey = request()->searchKey;
+        }
+
+        $data = [
+            'nurses' => $nurses,
+            'searchKey' => $searchKey,
+        ];
+
+        return view('dashboard.nurses.home', $data);
+    }
+
+    public function getPharmacists()
+    {
+        $pharmacists = Pharmacist::all();
+
+        $searchKey = null;
+        
+        if (request()->searchKey && request()->searchKey !== '') {
+            $pharmacists_filter = $pharmacists->filter(function ($value) {
+                return stripos($value->firstname, request()->searchKey) !== false ||
+                    stripos($value->lastname, request()->searchKey) !== false ||
+                    stripos($value->othernames, request()->searchKey) !== false ||
+                    stripos($value->email, request()->searchKey) !== false ||
+                    $value->pharmacist_card_number == request()->searchKey;
+            });
+            if (count($pharmacists_filter) <= 0) {
+                session()->flash(
+                    'search_message',
+                    'No result found for search key: ' . request()->searchKey
+                );
+            }
+            $pharmacists =
+                count($pharmacists_filter) > 0
+                    ? $pharmacists_filter
+                    : $pharmacists;
+            
+            $searchKey = request()->searchKey;
+        }
+
+        $data = [
+            'pharmacists' => $pharmacists,
+            'searchKey' => $searchKey,
+        ];
+
+        return view('dashboard.pharmacists.home', $data);
     }
 }
