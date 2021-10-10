@@ -53,6 +53,22 @@ class PatientsController extends Controller
         return view('dashboard.patients.show', $data);
     }
 
+    public function search(Request $request)
+    {
+        $this->validate($request, [
+            'national_card_id' => 'required',
+        ]);
+
+        $patient = Patient::where('national_card_id', $request->national_card_id)->first();
+
+        if (!$patient) {
+            session()->flash('error_message', 'Patient Doesn\'t exist.');
+            return back();
+        }
+
+        return redirect()->route('patients.show', ['id' => $patient->id]);
+    }
+
     public function folder($id)
     {
         $folder = Folder::find($id);
