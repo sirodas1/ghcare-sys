@@ -61,6 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'patients', 'as' => 'patients.'],function () {
         Route::get('', [PatientsController::class, 'index'])->name('home');
         Route::get('{id}', [PatientsController::class, 'show'])->name('show');
+        Route::get('folder/{id}', [PatientsController::class, 'folder'])->name('folder');
     });
 
     Route::group(['prefix' => 'doctors', 'as' => 'doctors.'],function () {

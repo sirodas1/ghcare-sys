@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use App\Models\Folder;
 
 class PatientsController extends Controller
 {
@@ -50,5 +51,14 @@ class PatientsController extends Controller
             'patient' => $patient,
         ];
         return view('dashboard.patients.show', $data);
+    }
+
+    public function folder($id)
+    {
+        $folder = Folder::find($id);
+        $data = [
+            'folder' => $folder,
+        ];
+        return view('dashboard.patients.folder', $data);
     }
 }
