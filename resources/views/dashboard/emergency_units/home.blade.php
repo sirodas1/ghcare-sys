@@ -30,7 +30,7 @@
     <br>
         <div class="row justify-content-center">
             <div class="col-6 bg-danger px-4 py-2">
-                <span class="text-light">{{session()->get('success_message')}}</span>
+                <span class="text-light">{{session()->get('search_message')}}</span>
             </div>
         </div><br><br>
     @endif
