@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="pharmacist_card_number" class="col col-form-label">{{ __('Pharmacist Card No. :') }}</label>
+                                <label for="pharmacist_card_number" class="col col-form-label">{{ __('EMS Card No. :') }}</label>
 
                                 <div class="col">
                                     <input id="pharmacist_card_number" type="text" class="form-control @error('pharmacist_card_number') is-invalid @enderror" name="pharmacist_card_number" value="{{ $emergency_unit->pharmacist_card_number }}" required autocomplete="pharmacist_card_number" autofocus>
