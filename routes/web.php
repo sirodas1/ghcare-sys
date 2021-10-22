@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('{id}', [PatientsController::class, 'show'])->name('show');
         Route::get('folder/{id}', [PatientsController::class, 'folder'])->name('folder');
         Route::post('search', [PatientsController::class, 'search'])->name('search');
+        Route::post('folder/lock/{id}', [PatientsController::class, 'openLockedFolder'])->name('open-locked-folder');
     });
 
     Route::group(['prefix' => 'doctors', 'as' => 'doctors.'],function () {
